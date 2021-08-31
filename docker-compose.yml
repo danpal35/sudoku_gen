@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  sudoku:
+    image: sudoku
+    env_file:
+      - .env
+    build:
+      context: .
+
