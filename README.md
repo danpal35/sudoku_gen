@@ -35,7 +35,7 @@ The app requires python 2.4. However, installing packages for that version of py
 
 
 ## Get project files
-    git clone 
+    git clone https://github.com/TechniCollins/sudoku_gen.git
 
 
 ## Create a working dir
@@ -45,9 +45,9 @@ The app requires python 2.4. However, installing packages for that version of py
     python2.7 bin/MakeAppWorkDir.py -c Context -l lib --gitignore /root/sudoku_gen/WebKit
 
 
-## copy packages and Generator to Working directory
+## copy packages and Generate to Working directory
 
-    cp -r /root/sudoku_gen/packages /root/sudoku_gen/WebKit/lib && cp -r /root/sudoku_gen/Generator /root/sudoku_gen/WebKit/Context/
+    cp -r /root/sudoku_gen/packages/. /root/sudoku_gen/WebKit/lib/ && cp -r /root/sudoku_gen/Generate /root/sudoku_gen/WebKit/Context/
 
 
 ## Edit /lib/defaults.py
@@ -57,11 +57,31 @@ We need to make our DATA_DIR variable point to where we put our lib folder in ou
     (lib/defaults.py line 29): DATA_DIR = os.path.expanduser('/root/sudoku_gen/WebKit/lib/games')
 
 
+## Add your Generator context to /WebKit/Configs/Application.config
+    
+    nano Configs/Appconfig.conf
+
+    Contexts['generate'] = 'Context/Generate'
+
+
+## Edit Configs/AppServer.config to listen to IP
+    
+    nano Configs/AppServer.config
+
+    Host = 'your_ip'
+
+
+## Allow Ports
+
+    ufw allow 8086
+    ufw allow 8080
+
+
 ## Start the App Server
 
-    /home/technicollins/Desktop/Projects/sudoku_gen/WebKit/AppServer
+    /root/sudoku_gen/WebKit/AppServer
 
 
 ## TEST
 
-    Browse http://localhost:8080
+    http://your_ip:8080
