@@ -25,7 +25,7 @@ else:
 IMAGE_DIR = os.path.join(usr,'share','gnome-sudoku')
 GLADE_DIR = os.path.join(usr,'share','gnome-sudoku')
 BASE_DIR = os.path.join(usr,'share','gnome-sudoku')
-#DATA_DIR = '/var/games/'
+# DATA_DIR = '/var/games/'
 DATA_DIR = os.path.expanduser('/root/sudoku_gen/WebKit/lib/games')
 if not os.path.exists(DATA_DIR): os.makedirs(DATA_DIR)
 

@@ -1,6 +1,6 @@
 FROM python:2.7-slim-buster
 
-MAINTAINER Solera Advisors "technicollins.business@gmail.com"
+MAINTAINER SoftLever Technologies "technicollins.business@gmail.com"
 
 ENV APP_HOME /application
 ENV C_FORCE_ROOT=true

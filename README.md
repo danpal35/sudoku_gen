@@ -85,3 +85,51 @@ We need to make our DATA_DIR variable point to where we put our lib folder in ou
 ## TEST
 
     http://your_ip:8080
+
+
+
+# ORIGINAL CODEBASE
+
+## SOURCE
+
+The source code was downloaded [here](http://www.opensky.ca/~jdhildeb/software/sudokugen/source/sudokugen.tar.gz)
+
+## CHANGES MADE
+
+Many small changes were made to get the app running. However, I forgot to document most of them, but luckily this repository has all the changes I made.
+
+Some of the changes I remember making are;
+
+**sudoku.py line 4**
+
+changed `import Numeric` to `from numpy import oldnumeric as Numeric`
+
+This change was made because the Numeric module nolonger exists indipendently and is now part of the numpy module as oldnumeric.
+
+
+**sudoku.py line 85**
+
+added `try except ValueError` block
+
+
+**index.html**
+
+Removed duplicate form.
+
+
+# TO DO
+
+## Fix Difficulty Level
+
+The difficulty level always remains the same. I suspect one of the following may be cause for this logical bug;
+
+**1:** The code has been written to asses the difficulty of a puzzle after it has been generated. Basically the app tries to solve the generated puzzle itself and determines how difficult it was to arrive at a solution. So even if a user chooses "Easy", but the algorithm determines the puzzle to be "Very hard", that's what will be printed on the PDF. I don't have any experience playing Sudoku, so I can't really tell whether a puzzle is actually difficult or not.
+
+
+**2:** Maybe all the pre-generated puzzles are really "very difficult". I can't generate any more puzzles to confirm this because the code that is supposed to generate new ones gets stuck in an infinite loop. This is another bug.
+
+
+
+## Fix generation of new puzzles
+
+Generation of new puzzles isn't working. `make_unique_puzzles` seems to be stuck in an infinite loop that I couldn't figure out how to fix.
